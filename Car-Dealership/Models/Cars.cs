@@ -4,53 +4,54 @@ namespace Dealership
 {
   class Car
   {
-    private string _makeModel;
-    private int _price;
-    private int _miles;
-    private string _slogan;
+    // Private properties. Get and set convert a public string into a private one. 
+    public string MakeModel { get; set; }
+    public int Price { get; set; }
+    public int Miles { get; set; }
+    public string Slogan { get; set; }
 
-
+    // Constructor
     public Car(string makeModel, int price, int miles, string slogan)
     {
-      _makeModel = makeModel;
-      _price = price;
-      _miles = miles;
-      _slogan = slogan;
+      MakeModel = makeModel;
+      Price = price;
+      Miles = miles;
+      Slogan = slogan;
     }
 
     public void SetPrice(int newPrice)
     {
-      _price = newPrice;
+      Price = newPrice;
     }
 
     public string GetMakeModel()
     {
-      return _makeModel;
+      return MakeModel;
     }
 
     public int GetPrice()
     {
-      return _price;
+      return Price;
     }
 
     public int GetMiles()
     {
-      return _miles;
+      return Miles;
     }
 
     public string GetSlogan()
     {
-      return _slogan;
+      return Slogan;
     }
 
-    public static string MakeSound(string sound) //New method 
+    public static string MakeSound() //New method 
         {
-            return "brrrruuummmm! " + sound;
+            return "brrrruuummmm! ";
         }
 
     public bool WorthBuying(int maxPrice)
     {
-      return (_price < maxPrice);
+      return (Price < maxPrice);
     }
   }
 }
