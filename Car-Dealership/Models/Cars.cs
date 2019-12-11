@@ -1,27 +1,56 @@
-namespace Dealership.Models
+using System;
+
+namespace Dealership
 {
-  public class Car
+  class Car
   {
-    public string MakeModel;
-    public int Price;
-    public int Miles;
-    public string Slogan;
+    private string _makeModel;
+    private int _price;
+    private int _miles;
+    private string _slogan;
+
 
     public Car(string makeModel, int price, int miles, string slogan)
     {
-      MakeModel = makeModel;
-      Price = price;
-      Miles = miles;
-      Slogan = slogan;
+      _makeModel = makeModel;
+      _price = price;
+      _miles = miles;
+      _slogan = slogan;
     }
 
-    public bool WorthBuying(int maxPrice, int maxMileage)
+    public void SetPrice(int newPrice)
     {
-      return (Price < maxPrice && Miles < maxMileage);
+      _price = newPrice;
     }
 
-    public string DisplayInfo() {
-        return MakeModel + " / Price: " + Price + " / " + Miles + " miles / Slogan: " + Slogan;
+    public string GetMakeModel()
+    {
+      return _makeModel;
+    }
+
+    public int GetPrice()
+    {
+      return _price;
+    }
+
+    public int GetMiles()
+    {
+      return _miles;
+    }
+
+    public string GetSlogan()
+    {
+      return _slogan;
+    }
+
+    public static string MakeSound(string sound) //New method 
+        {
+            return "brrrruuummmm! " + sound;
+        }
+
+    public bool WorthBuying(int maxPrice)
+    {
+      return (_price < maxPrice);
     }
   }
 }

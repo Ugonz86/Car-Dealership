@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Dealership.Models;
 
 namespace Dealership
 {
@@ -15,6 +14,8 @@ namespace Dealership
 
             List<Car> Cars = new List<Car>() { volkswagen, yugo, ford, amc };
 
+            // yugo.SetPrice(300); //This is optional. SetPrice is a C# method. Here it was used to change the value of a specific object.
+
             Console.WriteLine("Enter maximum price: ");
             string stringMaxPrice = Console.ReadLine();
             int maxPrice = int.Parse(stringMaxPrice);
@@ -27,15 +28,20 @@ namespace Dealership
 
             foreach (Car automobile in Cars)
             {
-            if (automobile.WorthBuying(maxPrice, maxMileage))
-            {
-                CarsMatchingSearch.Add(automobile);
-            }
+                if (automobile.WorthBuying(maxPrice))
+                {
+                    CarsMatchingSearch.Add(automobile);
+                }
             }
             if (CarsMatchingSearch.Count > 0) {
                 foreach(Car automobile in CarsMatchingSearch)
                     {
-                    Console.WriteLine(automobile.DisplayInfo());
+                    Console.WriteLine("----------------------");
+                    Console.WriteLine(automobile.GetMakeModel());
+                    Console.WriteLine(automobile.GetMiles() + " miles");
+                    Console.WriteLine("$" + automobile.GetPrice());
+                    Console.WriteLine(automobile.GetSlogan());
+                    Console.WriteLine(Car.MakeSound());
                     }
             } else {
                 Console.WriteLine("There is no cars matching the budget and mileage");
